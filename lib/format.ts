@@ -35,6 +35,10 @@ export function formatDeadline(deadline: string): string {
   return `${formatDistanceToNowStrict(date)} left`;
 }
 
+export function formatDistanceLabel(dateString: string): string {
+  return `${formatDistanceToNowStrict(new Date(dateString))} ago`;
+}
+
 export function formatDate(dateString: string): string {
   return new Date(dateString).toLocaleDateString("en-US", {
     year: "numeric",
