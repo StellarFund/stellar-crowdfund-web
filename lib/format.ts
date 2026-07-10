@@ -64,6 +64,18 @@ export function formatCampaignStatus(status: string): string {
   return CAMPAIGN_STATUS_LABEL[status] ?? status;
 }
 
+const CAMPAIGN_STATUS_BADGE_CLASSES: Record<string, string> = {
+  active: "bg-brand-500/15 text-brand-300 border-brand-500/30",
+  funded: "bg-success/15 text-success border-success/30",
+  completed: "bg-success/15 text-success border-success/30",
+  expired: "bg-muted/15 text-muted border-border",
+  cancelled: "bg-danger/15 text-danger border-danger/30",
+};
+
+export function campaignStatusBadgeClasses(status: string): string {
+  return CAMPAIGN_STATUS_BADGE_CLASSES[status] ?? "bg-muted/15 text-muted border-border";
+}
+
 const MILESTONE_STATUS_LABEL: Record<string, string> = {
   pending: "Pending",
   submitted: "Proof Submitted",
@@ -74,4 +86,16 @@ const MILESTONE_STATUS_LABEL: Record<string, string> = {
 
 export function formatMilestoneStatus(status: string): string {
   return MILESTONE_STATUS_LABEL[status] ?? status;
+}
+
+const MILESTONE_STATUS_BADGE_CLASSES: Record<string, string> = {
+  pending: "bg-muted/15 text-muted border-border",
+  submitted: "bg-warning/15 text-warning border-warning/30",
+  approved: "bg-brand-500/15 text-brand-300 border-brand-500/30",
+  rejected: "bg-danger/15 text-danger border-danger/30",
+  released: "bg-success/15 text-success border-success/30",
+};
+
+export function milestoneStatusBadgeClasses(status: string): string {
+  return MILESTONE_STATUS_BADGE_CLASSES[status] ?? "bg-muted/15 text-muted border-border";
 }
